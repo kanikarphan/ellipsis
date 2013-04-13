@@ -4,13 +4,11 @@ There are many scenarios in the display of online text where shortened, truncate
 
 ## How to use it
 Attach the ellipsis to an element
-```
-$(elementent).ellipsis();
-```
+`(elementent).ellipsis();`
+
 To ellipsis a paragraph, a class is needed to indicate it is multiline. The default class is `multiline`, this can be change through the plugin option.
 
 ## Plugin options
-```
 <table>
   <thead>
     <tr>
