@@ -4,7 +4,9 @@ There are many scenarios in the display of online text where shortened, truncate
 
 ## How to use it
 Attach the ellipsis to an element
-`(elementent).ellipsis();`
+```
+$(elementent).ellipsis();
+```
 
 To ellipsis a paragraph, a class is needed to indicate it is multiline. The default class is `multiline`, this can be change through the plugin option.
 
@@ -40,7 +42,7 @@ To ellipsis a paragraph, a class is needed to indicate it is multiline. The defa
     <tr>
       <td>target</td>
       <td>string</td>
-      <td>'_self'</td>
+      <td>_self</td>
       <td>ellipsis link target '_self' or '_blank'</td>
     </tr>
     <tr>
@@ -64,12 +66,12 @@ To ellipsis a paragraph, a class is needed to indicate it is multiline. The defa
     <tr>
       <td>wrape</td>
       <td>string</td>
-      <td>none/td>
+      <td>none</td>
       <td>wrape the ellipsis with the html tag</td>
     </tr>
   </tbody>
 </table>
-<i>For the boolean options above use 0 or 1 instead of false or true.</i>
+<i>For the boolean option above use 0 or 1 instead of false or true.</i>
 
 ## Plugin options taken to the next level
 All options above are configurable with HTML5 data attribute. This is a significantly cleaner solution (as long as you don’t mind the inline approach).

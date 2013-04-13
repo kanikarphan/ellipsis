@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" large-12 content="IE=edge,chrome=1">
+    <title>Ellipsis Plugin</title>
+    <meta name="viewport" large-12 content="width=device-width">
+    <link rel="stylesheet" href="css/demo.css">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="ellipsis.js"></script>
+  </head>
+  <body>
+
+    <nav class="nav-bar ">
+      <ul class="title-area">
+        <li class="name">
+          <h1>
+            <a href="#">
+              Ellipsis Plugin
+            </a>
+          </h1>
+        </li>
+      </ul>
+      <ul class="link-area inline-list">
+        <li><a href="#"><i class="icon-github"></i></a></li>
+      </ul>
+    </nav>
+
+    <section class="row">
+      <div class="large-6 small-6 columns without">
+        <h1>Without ellipsis</h1>
+        <div class="large-12 content">
+          <p class="">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi at tincidunt mauris. Cras ac nibh id ante pharetra egestas. Maecenas pharetra augue ut erat tempor at rhoncus mi tincidunt. Nulla at erat sem. Nam id sem enim, at tincidunt mauris. Nunc ut magna arcu, ac blandit mauris. Nunc in sapien enim. Quisque dui orci, hendrerit id hendrerit eget, tristique ut urna. Donec adipiscing lectus ut velit ullamcorper vehicula. Suspendisse potenti.</p>
+        </div>
+        <div class="large-12 content">
+          <p class="multiline">Aenean eget risus sed urna eleifend fermentum. Mauris iaculis lobortis rhoncus. Aliquam pellentesque, lorem ut commodo consequat, quam dolor varius sem, quis fermentum elit est sit amet neque. Sed mattis mollis sapien, vulputate interdum dui commodo nec. Pellentesque mattis imperdiet massa, ut volutpat diam sodales mattis. Nunc tincidunt facilisis odio adipiscing tempus. Praesent commodo, dui quis molestie euismod, felis orci rutrum erat, a interdum mauris elit vel risus. Praesent scelerisque nulla a eros bibendum varius. Pellentesque faucibus, nisl a lacinia ultricies, arcu odio facilisis nibh, nec pulvinar sapien urna id dolor. Pellentesque consectetur imperdiet ligula vel dignissim. Proin lacinia ante sit amet quam pulvinar adipiscing. Nulla ligula nibh, vestibulum ac sollicitudin id, sollicitudin ac velit. Integer odio libero, interdum ut semper adipiscing, tempus in eros.</p>
+        </div>
+        <div class="large-12 content">
+          <p class="multiline">Nulla sapien urna, pharetra nec hendrerit quis, elementum id purus. Cras vitae lectus lectus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aliquam sed nibh eu mi accumsan ultricies. Sed cursus faucibus dignissim. Nam venenatis velit eget ipsum faucibus viverra. Nulla non felis in orci luctus molestie id nec mi. Ut ligula nisi, feugiat id convallis nec, vestibulum in magna. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla porttitor purus sed arcu vulputate venenatis. Nam quis metus leo, eget cursus ipsum. Praesent semper, libero sit amet viverra auctor, enim nisi vehicula nisl, sit amet fermentum leo urna in mi. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut vel scelerisque justo. Nullam magna leo, pretium eget luctus eget, aliquam in massa. Mauris quis mi vel est ultrices aliquet.</p>
+        </div>
+      </div>
+      <div class="large-6 small-6 columns">
+        <h1>With ellipsis</h1>
+        <div class="large-12 content">
+          <p class="example1" data-plugin-options='{"href":"http://google.com", "target":"_blank", "title":1}'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi at tincidunt mauris. Cras ac nibh id ante pharetra egestas. Maecenas pharetra augue ut erat tempor at rhoncus mi tincidunt. Nulla at erat sem. Nam id sem enim, at tincidunt mauris. Nunc ut magna arcu, ac blandit mauris. Nunc in sapien enim. Quisque dui orci, hendrerit id hendrerit eget, tristique ut urna. Donec adipiscing lectus ut velit ullamcorper vehicula. Suspendisse potenti.</p>
+        </div>
+        <div class="large-12 content">
+          <p class="ellipsis multi example2" data-plugin-options='{"multiClass":"multi"}'>Aenean eget risus sed urna eleifend fermentum. Mauris iaculis lobortis rhoncus. Aliquam pellentesque, lorem ut commodo consequat, quam dolor varius sem, quis fermentum elit est sit amet neque. Sed mattis mollis sapien, vulputate interdum dui commodo nec. Pellentesque mattis imperdiet massa, ut volutpat diam sodales mattis. Nunc tincidunt facilisis odio adipiscing tempus. Praesent commodo, dui quis molestie euismod, felis orci rutrum erat, a interdum mauris elit vel risus. Praesent scelerisque nulla a eros bibendum varius. Pellentesque faucibus, nisl a lacinia ultricies, arcu odio facilisis nibh, nec pulvinar sapien urna id dolor. Pellentesque consectetur imperdiet ligula vel dignissim. Proin lacinia ante sit amet quam pulvinar adipiscing. Nulla ligula nibh, vestibulum ac sollicitudin id, sollicitudin ac velit. Integer odio libero, interdum ut semper adipiscing, tempus in eros.</p>
+        </div>
+        <div class="large-12 content">
+          <p class="ellipsis multiline example3" data-plugin-options='{"ellipsis":" ...read more","wrape":"span"}'>Nulla sapien urna, pharetra nec hendrerit quis, elementum id purus. Cras vitae lectus lectus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aliquam sed nibh eu mi accumsan ultricies. Sed cursus faucibus dignissim. Nam venenatis velit eget ipsum faucibus viverra. Nulla non felis in orci luctus molestie id nec mi. Ut ligula nisi, feugiat id convallis nec, vestibulum in magna. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla porttitor purus sed arcu vulputate venenatis. Nam quis metus leo, eget cursus ipsum. Praesent semper, libero sit amet viverra auctor, enim nisi vehicula nisl, sit amet fermentum leo urna in mi. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut vel scelerisque justo. Nullam magna leo, pretium eget luctus eget, aliquam in massa. Mauris quis mi vel est ultrices aliquet.</p>
+        </div>
+      </div>
+    </section>
+
+    <footer class="row">
+      <div class="large-12 columns"><hr>
+        <ul class="inline-list right">
+          <li><a href="#">Link 1</a></li>
+          <li><a href="#">Link 2</a></li>
+          <li><a href="#">Link 3</a></li>
+          <li><a href="#">Link 4</a></li>
+        </ul>
+      </div>
+    </footer>
+
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $('.example1').ellipsis();
+        $('.example2').ellipsis();
+        $('.example3').ellipsis({
+          ellipsisStart: function() {
+            console.log('start');
+          },
+          ellipsisComplete: function() {
+            console.log('done');
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

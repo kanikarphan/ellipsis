@@ -1,0 +1,81 @@
+@font-face {
+	font-family: 'kanikar';
+	src:url('../fonts/kanikar.eot');
+	src:url('../fonts/kanikar.eot?#iefix') format('embedded-opentype'),
+		url('../fonts/kanikar.woff') format('woff'),
+		url('../fonts/kanikar.ttf') format('truetype'),
+		url('../fonts/kanikar.svg#kanikar') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+.icon-github {
+	font-family: 'kanikar';
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+	-webkit-font-smoothing: antialiased;
+}
+.icon-github:before {
+	content: "\21";
+}
+.nav-bar {
+	background: #111111;
+	height: 2.813em;
+	line-height: 2.813em;
+	overflow: hidden;
+	position: relative;
+	margin-bottom: 1.875em;
+}
+.nav-bar a {
+	color: #ffffff;
+}
+.nav-bar .title-area {
+	float: left;
+	padding: 0 0.938em;
+	position: relative;
+}
+.nav-bar ul {
+	margin-bottom: 0;
+	list-style: none;
+}
+.nav-bar .name {
+	font-size: 1.000em;
+	height: 2.813em;
+	margin: 0;
+}
+.nav-bar .name h1 {
+	font-size: 1.0625em;
+	line-height: 2.813em;
+	margin: 0;
+}
+.link-area {
+	float: right;
+	line-height: 3.625em;
+	padding: 0 0.938em;
+}
+.link-area i {
+	font-size: 1.875em;
+}
+.without .content p {
+  overflow: hidden;
+}
+/* Setup content panels */
+.content {
+  margin: 0 0 0.625em;
+  border: 1px dashed #cdcdcd;
+  padding: 0.625em;
+  line-height: 1.250em;
+}
+.content p {
+  margin: 0;
+  padding: 0;
+}
+.content p.multiline {
+  height: 3.750em; /* Height is required for multiple lines to set line limit. */
+}
+.content p.multi {
+  height: 2.500em; /* Height is required for multiple lines to set line limit. */
+}
