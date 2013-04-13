@@ -1,0 +1,144 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Ellipsis by kanikarphan</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Ellipsis</h1>
+        <p>Ellipsis is a series of dots that usually indicate an intentional omission of a word, sentence or whole section from the original text being quoted, and though necessary for syntactical construction, is not necessary for comprehension.</p>
+
+        <p class="view"><a href="https://github.com/kanikarphan/ellipsis">View the Project on GitHub <small>kanikarphan/ellipsis</small></a></p>
+
+
+        <ul>
+          <li><a href="https://github.com/kanikarphan/ellipsis/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/kanikarphan/ellipsis/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/kanikarphan/ellipsis">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h1>Ellipsis Plugin</h1>
+
+<p>There are many scenarios in the display of online text where shortened, truncated representations are best used. For these scenarios, many opt for the implementation of ellipses. Ellipsis is a customizable jQuery plugin for the smart truncation of text base on container width and not character count.</p>
+
+<h2>How to use it</h2>
+
+<p>Attach the ellipsis to an element
+<code>(elementent).ellipsis();</code></p>
+
+<p>To ellipsis a paragraph, a class is needed to indicate it is multiline. The default class is <code>multiline</code>, this can be change through the plugin option.</p>
+
+<h2>Plugin options</h2>
+
+<table>
+<tr>
+<th>Name</th>
+      <th>Type</th>
+      <th>Default</th>
+      <th>Description</th>
+    </tr>
+<tr>
+<td>ellipsis</td>
+      <td>string</td>
+      <td>...</td>
+      <td>ellipsis element with this</td>
+    </tr>
+<tr>
+<td>multiClass</td>
+      <td>string</td>
+      <td>multiline</td>
+      <td>class to use to determine if element is multiline ellipsis</td>
+    </tr>
+<tr>
+<td>href</td>
+      <td>string</td>
+      <td>none</td>
+      <td>make the ellipsis into a clickable link</td>
+    </tr>
+<tr>
+<td>target</td>
+      <td>string</td>
+      <td>'_self'</td>
+      <td>ellipsis link target '_self' or '_blank'</td>
+    </tr>
+<tr>
+<td>before</td>
+      <td>string</td>
+      <td>none</td>
+      <td>insert any character before the ellipsis</td>
+    </tr>
+<tr>
+<td>after</td>
+      <td>string</td>
+      <td>none</td>
+      <td>insert any character after the ellipsis</td>
+    </tr>
+<tr>
+<td>title</td>
+      <td>boolean</td>
+      <td>0</td>
+      <td>add a title attribute with content to the ellipsis container</td>
+    </tr>
+<tr>
+<td>wrape</td>
+      <td>string</td>
+      <td>none/td&gt;
+      </td>
+<td>wrape the ellipsis with the html tag</td>
+    </tr>
+</table><p><i>For the boolean options above use 0 or 1 instead of false or true.</i></p>
+
+<h2>Plugin options taken to the next level</h2>
+
+<p>All options above are configurable with HTML5 data attribute. This is a significantly cleaner solution (as long as you don’t mind the inline approach).</p>
+
+<p>You can use the standard approach</p>
+
+<pre><code>$(elementent1).ellipsis();
+$(elementent2).ellipsis({ellipsis: 'read more', multiClass: 'multi'});
+$(elementent3).ellipsis({title: 1});
+</code></pre>
+
+<p><strong>or</strong></p>
+
+<p>HTML5 data approach</p>
+
+<pre><code>data-plugin-options='{"ellipsis":"read more","multiClass":"multi"}'
+data-plugin-options='{"ellipsis":"read more"}'
+$(elementent).ellipsis(); // in your js just init plugin
+</code></pre>
+
+<h2>Plugin callback method</h2>
+
+<p>Ellipsis has two callback. One on start and the other on complete.</p>
+
+<pre><code>$(elementent).ellipsis({
+  ellipsisStart: function() {
+    // do stuff here
+  },
+  ellipsisComplete: function() {
+    // do stuff here
+  }
+});
+</code></pre>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/kanikarphan">kanikarphan</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+    
+  </body>
+</html>
