@@ -6,7 +6,7 @@
 
 /*  Usage: 
     // attach the ellipsis to an element
-    $('.element').ellipsis({ellipsis: 'foo'});
+    $(element).ellipsis({ellipsis: 'foo'});
 
     // set the value of a property with data attributes
     data-plugin-options='{"ellipsis":"foo"}'
