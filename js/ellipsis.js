@@ -1,11 +1,12 @@
 /*  Ellipsis
-    Company: kbb.com
+    Author: Kanikar
+    Info: https://github.com/kanikarphan
     Licensed under the MIT license
 */
 
 /*  Usage: 
-    // attach the ellipsis to an elementent
-    $('.elementent').ellipsis({ellipsis: 'foo'});
+    // attach the ellipsis to an element
+    $('.element').ellipsis({ellipsis: 'foo'});
 
     // set the value of a property with data attributes
     data-plugin-options='{"ellipsis":"foo"}'
