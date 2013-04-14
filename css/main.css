@@ -86,9 +86,6 @@
   margin: 0;
   padding: 0;
 }
-.content p.multiline {
+.content p.multiline, .content p.multi  {
   height: 3.750em; /* Height is required for multiple lines to set line limit. */
-}
-.content p.multi {
-  height: 2.500em; /* Height is required for multiple lines to set line limit. */
 }

@@ -44,35 +44,29 @@
       return this;
     },
     ellipsisIt: function(element) {
-      var _this = $(element); // cache this selector
-      if(_this.css('overflow') === 'hidden') { // ellipsis container needs to have css propierty 'overflow: hidden'
+      var _clone = this.element.cloneNode(true), // clone element content
+          _elem = $(element); // cache this selector
+      if (_elem.css('overflow') === 'hidden') { // ellipsis container needs to have css propierty 'overflow: hidden'
         ($.isFunction(this.settings.ellipsisStart)) ? this.settings.ellipsisStart.call() : 0; // ellipsis start callback function
-        var _text = _this.html(), // element text
-            _multiline = _this.hasClass(this.settings.multiClass), // check if element has this multiline class
-            _elem = $(_this.clone()) // clone current element content
-              .hide()
-              .css({
-                'position': 'absolute',
-                'overflow': 'visible'
-              })
-              .width(_multiline ? _this.width() : 'auto')
-              .height(_multiline ? 'auto' : _this.height()),
-            _calculate = _multiline ? calcHeight : calcWidth; // calc height / width
-        _this.after(_elem); // add ellipsis after the content
-        while(_text.length > 0 && _calculate()) { // fit content to container
+        var _text = _elem.html(), // element content
+            _multiline = _elem.hasClass(this.settings.multiClass), // check if element has this multiline class
+            _this = $(_clone).hide().css({'position': 'absolute','overflow': 'visible'}).width(_multiline ? _elem.width() : 'auto').height(_multiline ? 'auto' : _elem.height()); // clone current background and get content
+        _elem.after(_this); // add ellipsis after the content
+        function height() { return _this.height() > _elem.height(); } // calculate size of content
+        function width() { return _this.width() > _elem.width(); } // calculate size of content
+        var _calcFunc = _multiline ? height : width;
+        while (_text.length > 0 && _calcFunc()) { // fit content to container
           _text = _text.substr(0, _text.length - 1);
-          if(this.settings.href.length > 0) { // ellipsis as a link
-            _elem.html(_text + this.settings.before + '<a href="' + this.settings.href + '" target="' + this.settings.target + '">' + this.settings.ellipsis + '</a>' + this.settings.after);
-          } else if(this.settings.wrape.length > 0) { // wrape ellipsis with this
-            _elem.html(_text + this.settings.before + '<' + this.settings.wrape + '>' + this.settings.ellipsis + '</' + this.settings.wrape + '>' + this.settings.after);
+          if (this.settings.href.length > 0) { // ellipsis as a link
+            _this.html(_text + this.settings.before + '<a href="' + this.settings.href + '" target="' + this.settings.target + '">' + this.settings.ellipsis + '</a>' + this.settings.after);
+          } else if (this.settings.wrape.length > 0) { // wrape ellipsis with this
+            _this.html(_text + this.settings.before + '<' + this.settings.wrape + '>' + this.settings.ellipsis + '</' + this.settings.wrape + '>' + this.settings.after);
           } else { // ellipsis normally
-            _elem.html(_text + this.settings.before + this.settings.ellipsis + this.settings.after);          
+            _this.html(_text + this.settings.before + this.settings.ellipsis + this.settings.after);
           }
         }
-        _this.html($.trim(_elem.html())); // setup content
-        _elem.remove(); // clean up content
-        function calcHeight() { return _elem.height() > _this.height(); } // calculate size of content height
-        function calcWidth() { return _elem.width() > _this.width(); } // calculate size of content width
+        _elem.html($.trim(_this.html())); // setup content
+        _this.remove(); // clean up content
         ($.isFunction(this.settings.ellipsisComplete)) ? this.settings.ellipsisComplete.call() : 0; // ellipsis complete callback function
       }
     },
