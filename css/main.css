@@ -21,6 +21,16 @@
 .icon-github:before {
 	content: "\21";
 }
+.lt-ie9 .icon-github {
+	display: inline-block;
+	width: 1.875em;
+	height: 1.875em;
+	background-image: url(../img/sprites.png);
+	background-repeat: no-repeat;
+}
+.lt-ie9 .icon-github {
+	background-position: 0 0;
+}
 .nav-bar {
 	background: #111111;
 	height: 2.813em;
@@ -58,6 +68,9 @@
 }
 .link-area i {
 	font-size: 1.875em;
+}
+.lt-ie9 .link-area i {
+	font-size: 1.000em;
 }
 .without .content p {
   overflow: hidden;
