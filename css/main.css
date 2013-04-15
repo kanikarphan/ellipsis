@@ -72,10 +72,13 @@
 .lt-ie9 .link-area i {
 	font-size: 1.000em;
 }
+.lt-ie8 .large-6 {
+	width: 46%;
+}
 .without .content p {
   overflow: hidden;
 }
-/* Setup content panels */
+/* setup ellipsis content container */
 .content {
   margin: 0 0 0.625em;
   border: 1px dashed #cdcdcd;
@@ -87,5 +90,5 @@
   padding: 0;
 }
 .content p.multiline, .content p.multi  {
-  height: 3.750em; /* Height is required for multiple lines to set line limit. */
+  height: 3.750em; /* height is required for multiple lines to set line limit. */
 }
