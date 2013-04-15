@@ -5,7 +5,7 @@ There are many scenarios in the display of online text where shortened, truncate
 ## How to use it
 Attach the ellipsis to an element
 ```
-$(elementent).ellipsis();
+$(element).ellipsis();
 ```
 
 To ellipsis a paragraph, a class is needed to indicate it is multiline. The default class is `multiline`, this can be change through the plugin option.
@@ -78,9 +78,9 @@ All options above are configurable with HTML5 data attribute. This is a signific
 
 You can use the standard approach
 ```
-$(elementent1).ellipsis();
-$(elementent2).ellipsis({ellipsis: 'read more', multiClass: 'multi'});
-$(elementent3).ellipsis({title: 1});
+$(element1).ellipsis();
+$(element2).ellipsis({ellipsis: 'read more', multiClass: 'multi'});
+$(element3).ellipsis({title: 1});
 ```
 <strong>or</strong>
 
@@ -88,13 +88,13 @@ HTML5 data approach
 ```
 data-plugin-options='{"ellipsis":"read more","multiClass":"multi"}'
 data-plugin-options='{"ellipsis":"read more"}'
-$(elementent).ellipsis(); // in your js just init plugin
+$(element).ellipsis(); // init the plugin once
 ```
 
 ## Plugin callback method
-Ellipsis has two callback. One on start and the other on complete.
+This plugin has two callback.
 ```
-$(elementent).ellipsis({
+$(element).ellipsis({
   ellipsisStart: function() {
     // do stuff here
   },
