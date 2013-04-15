@@ -75,6 +75,9 @@
 .without .content p {
   overflow: hidden;
 }
+.lt-ie8 .large-6 {
+	width: 46%;
+}
 /* Setup content panels */
 .content {
   margin: 0 0 0.625em;
