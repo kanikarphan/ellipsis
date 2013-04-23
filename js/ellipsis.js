@@ -30,7 +30,7 @@
       before: '', // add text or space before the ellipsis
       after: '', // add text or space after the ellipsis
       title: 0, // add title to the parent container 1 || 0 which is true or false
-      wrape: {}, // wrape ellipsis with this tag
+      wrap: {}, // wrap ellipsis with this tag
       ellipsisStart: null, // ellipsis start callback function
       ellipsisComplete: null // ellipsis complete callback function
     },
@@ -59,8 +59,8 @@
           _text = _text.substr(0, _text.length - 1);
           if (this.settings.href.length > 0) { // ellipsis as a link
             _this.html(_text + this.settings.before + '<a href="' + this.settings.href + '" target="' + this.settings.target + '">' + this.settings.ellipsis + '</a>' + this.settings.after);
-          } else if (this.settings.wrape.length > 0) { // wrape ellipsis with this
-            _this.html(_text + this.settings.before + '<' + this.settings.wrape + '>' + this.settings.ellipsis + '</' + this.settings.wrape + '>' + this.settings.after);
+          } else if (this.settings.wrap.length > 0) { // wrap ellipsis with this
+            _this.html(_text + this.settings.before + '<' + this.settings.wrap + '>' + this.settings.ellipsis + '</' + this.settings.wrap + '>' + this.settings.after);
           } else { // ellipsis normally
             _this.html(_text + this.settings.before + this.settings.ellipsis + this.settings.after);
           }
