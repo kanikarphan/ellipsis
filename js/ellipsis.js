@@ -44,36 +44,95 @@
       return this;
     },
     ellipsisIt: function(element) {
-      var _clone = this.element.cloneNode(true), // clone element content
-          _elem = $(element); // cache this selector
+      // plugin options from default
+      var _ellipsis = this.settings.ellipsis,
+          _href = this.settings.href,
+          _target = this.settings.target,
+          _before = this.settings.before,
+          _after = this.settings.after,
+          _wrap = this.settings.wrap,
+          _clone = this.element.cloneNode(true), // clone element text
+          _elem = $(element), // cache this selector
+          _elemMaxHeight = parseInt(_elem.css('max-height')), // 
+          _elemHeight = _elem.height(),
+          _thisHeight = _elemMaxHeight ? _elemMaxHeight : _elemHeight;
       if (_elem.css('overflow') === 'hidden') { // ellipsis container needs to have css propierty 'overflow: hidden'
         ($.isFunction(this.settings.ellipsisStart)) ? this.settings.ellipsisStart.call() : 0; // ellipsis start callback function
-        var _text = _elem.html(), // element content
+        var _text = _elem.html(), // element text
             _multiline = _elem.hasClass(this.settings.multiClass), // check if element has this multiline class
-            _this = $(_clone).hide().css({'position': 'absolute','overflow': 'visible'}).width(_multiline ? _elem.width() : 'auto').height(_multiline ? 'auto' : _elem.height()); // clone current background and get content
-        _elem.after(_this); // add ellipsis after the content
-        function height() { return _this.height() > _elem.height(); } // calculate size of content
-        function width() { return _this.width() > _elem.width(); } // calculate size of content
-        var _calcFunc = _multiline ? height : width;
-        while (_text.length > 0 && _calcFunc()) { // fit content to container
-          _text = _text.substr(0, _text.length - 1);
-          if (this.settings.href.length > 0) { // ellipsis as a link
-            _this.html(_text + this.settings.before + '<a href="' + this.settings.href + '" target="' + this.settings.target + '">' + this.settings.ellipsis + '</a>' + this.settings.after);
-          } else if (this.settings.wrap.length > 0) { // wrap ellipsis with this
-            _this.html(_text + this.settings.before + '<' + this.settings.wrap + '>' + this.settings.ellipsis + '</' + this.settings.wrap + '>' + this.settings.after);
-          } else { // ellipsis normally
-            _this.html(_text + this.settings.before + this.settings.ellipsis + this.settings.after);
+            _this = $(_clone).hide()
+              .css('position', 'absolute')
+              .css('overflow', 'visible')
+              .css('max-height','none')
+              .width(_multiline ? _elem.width() : 'auto')
+              .height(_multiline ? 'auto' : _thisHeight)
+        _elem.after(_this);
+        var heightFunc = function() {
+          return _this.height() > _thisHeight;
+        };
+        var widthFunc = function() {
+          return _this.width() > _elem.width();
+        };
+        var calcFunc = _multiline ? heightFunc : widthFunc;
+        // if the element is too long
+        if(!!calcFunc()) {
+          var originalText = _text;
+          // ellipsis the text
+          var createFunc = function(i) {
+            _text = originalText.substr(0, i);
+            if (_href.length > 0) { // ellipsis as a link
+              _this.html(_text + _before + '<a href="' + _href + '" target="' + _target + '">' + _ellipsis + '</a>' + _after);
+            } else if (_wrap.length > 0) { // wrap ellipsis with this
+              _this.html(_text + _before + '<' + _wrap + '>' + _ellipsis + '</' + _wrap + '>' + _after);
+            } else { // ellipsis normally
+              _this.html(_text + _before + _ellipsis + _after);
+            }
+          };
+          var searchFunc = function(i) {
+            createFunc(i);
+            if(calcFunc()) {
+              return -1;
+            }
+            return 0;
+          };
+          // binary search
+          var binarySearch = function(_length, _func) {
+            var _mid,
+                _low = 0,
+                _high = _length - 1,
+                _best = -1,
+                _tries = 0;
+            // find best match
+            while(_low <= _high) {
+              _tries++;
+              _mid = ~~((_low + _high) / 2);
+              var result = _func(_mid);
+              if(result < 0) {
+                _high = _mid - 1;
+              } else if(result > 0) {
+                _low = _mid + 1;
+              } else {
+                _best = _mid;
+                _low = _mid + 1;
+              }
+              // more than 15 tries just break
+              if(_tries === 15) {
+                break;
+              }
+            }
+            return createFunc(_best);
           }
+          binarySearch(_text.length - 1, searchFunc); // use binary serach method
+          _elem.html(_this.html());
         }
-        _elem.html($.trim(_this.html())); // setup content
-        _this.remove(); // clean up content
+        _this.remove(); // clean up
         ($.isFunction(this.settings.ellipsisComplete)) ? this.settings.ellipsisComplete.call() : 0; // ellipsis complete callback function
       }
     },
-    ellipsisTitle: function(element) { // append content to container as title attribute 
+    ellipsisTitle: function(element) { // append text to container as title attribute 
       var _this = $(element),
-          _title = _this.text(); // content text
-      _this.parent().attr('title', _title); // add the title attribute
+          _title = _this.text(); // use element text as title
+      _this.attr('title', _title); // add the title attribute
     }
   }
   ellipsis.defaults = ellipsis.prototype.defaults; 
