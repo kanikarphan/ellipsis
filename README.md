@@ -8,7 +8,9 @@ Attach the ellipsis to an element
 $(element).ellipsis();
 ```
 
-To ellipsis a paragraph, a class is needed to indicate it is multiline. The default class is `multiline`, this can be change through the plugin option. Height or max height is required for multiple lines to set line limit. Single line ellipsis require a width to be define.
+Single line ellipsis require a width to be define.
+
+To ellipsis a paragraph, a class is needed to indicate it is multiline. The default class is `multiline`, this can be change through the plugin option. Height or max height is required for multiple lines to set line limit.
 
 
 ## Plugin options
